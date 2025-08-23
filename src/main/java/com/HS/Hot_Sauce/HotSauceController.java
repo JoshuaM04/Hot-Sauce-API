@@ -35,7 +35,11 @@ public class HotSauceController
                 @RequestParam(required = false) String producer
             )
             {
-                if (name != null)
+                if (name != null && producer != null)
+                {
+                    return hotSauceService.getHotSauceByNameAndProducer(name, producer);
+                }
+                else if (name != null)
                 {
                     return hotSauceService.getHotSauceByName(name);
                 }
