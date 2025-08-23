@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface HotSauceRepository extends JpaRepository<HotSauce,Integer>
 {
-    void deleteByIndex(int index);
+    void deleteByID(int id);
     // Optional, as I expect at most 1 value to be returned.
-    Optional<HotSauce> findByIndex(int index);
+    Optional<HotSauce> findByID(int id);
     List<HotSauce> findByName(String name);
     List<HotSauce> findBySHU(String shu);
     List<HotSauce> findBySL(String sl);

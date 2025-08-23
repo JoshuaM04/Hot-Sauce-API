@@ -19,8 +19,8 @@ public class HotSauceService {
         return hotSauceRepository.findAll();
     }
 
-    public Optional<HotSauce> getHotSauceByIndex(int searchIndex) {
-        return hotSauceRepository.findByIndex(searchIndex);
+    public Optional<HotSauce> getHotSauceByID(int searchIndex) {
+        return hotSauceRepository.findByID(searchIndex);
     }
 
     public List<HotSauce> getHotSauceByName(String searchText) {
