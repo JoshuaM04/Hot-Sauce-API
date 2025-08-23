@@ -16,5 +16,6 @@ public interface HotSauceRepository extends JpaRepository<HotSauce,Integer>
     List<HotSauce> findBySHU(String shu);
     List<HotSauce> findBySL(String sl);
     List<HotSauce> findByProducer(String producer);
+    List<HotSauce> findByNameAndProducer (String name, String producer);
 
 }
