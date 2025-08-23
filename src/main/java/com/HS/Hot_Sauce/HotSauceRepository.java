@@ -7,15 +7,13 @@ import java.util.List;
 
 
 @Repository
-public interface HotSauceRepository extends JpaRepository<HotSauce,Integer>
+public interface HotSauceRepository extends JpaRepository<HotSauce,String>
 {
-    void deleteByID(int id);
     // Optional, as I expect at most 1 value to be returned.
-    Optional<HotSauce> findByID(int id);
+    // Optional<HotSauce> findById(String id);
     List<HotSauce> findByName(String name);
-    List<HotSauce> findBySHU(String shu);
-    List<HotSauce> findBySL(String sl);
+    List<HotSauce> findByScovilleHeatUnits(String shu);
+    List<HotSauce> findByScovilleLevel(String sl);
     List<HotSauce> findByProducer(String producer);
     List<HotSauce> findByNameAndProducer (String name, String producer);
-
 }

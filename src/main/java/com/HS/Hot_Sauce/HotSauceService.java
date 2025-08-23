@@ -19,20 +19,20 @@ public class HotSauceService {
         return hotSauceRepository.findAll();
     }
 
-    public Optional<HotSauce> getHotSauceByID(int searchIndex) {
-        return hotSauceRepository.findByID(searchIndex);
+    public Optional<HotSauce> getHotSauceById(String searchIndex) {
+        return hotSauceRepository.findById(searchIndex);
     }
 
     public List<HotSauce> getHotSauceByName(String searchText) {
         return hotSauceRepository.findByName(searchText);
     }
 
-    public List<HotSauce> getHotSauceBySHU(String searchText) {
-        return hotSauceRepository.findBySHU(searchText);
+    public List<HotSauce> getHotSauceByScovilleHeatUnits(String searchText) {
+        return hotSauceRepository.findByScovilleHeatUnits(searchText);
     }
 
-    public List<HotSauce> getHotSauceBySL(String searchText) {
-        return hotSauceRepository.findBySL(searchText);
+    public List<HotSauce> getHotSauceByScovilleLevel(String searchText) {
+        return hotSauceRepository.findByScovilleLevel(searchText);
     }
 
     public List<HotSauce> getHotSauceByProducer(String searchText) {

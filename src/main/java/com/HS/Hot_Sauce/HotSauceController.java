@@ -10,17 +10,18 @@ import java.util.Optional;
 
 @RestController // Combination of @Controller & @ResponseBody annotations
 @RequestMapping (path = "api/v1/hot_sauce") // A general-purpose mapping annotation that can handle any HTTP method. Sets the base path for all methods in the controller.
-public class HotSauceController {
+public class HotSauceController
+{
     private final HotSauceService hotSauceService;
 
     @Autowired
     public HotSauceController(HotSauceService hotSauceService) {this.hotSauceService = hotSauceService;}
 
-    @GetMapping
+    @GetMapping("/{id}")
     // ResponseEntity handles HTTP status codes
-    public ResponseEntity<HotSauce> getHotSauceByID(@RequestParam Integer id)
+    public ResponseEntity<HotSauce> getHotSauceByID(@PathVariable String id)
     {
-        Optional<HotSauce> hotSauce = hotSauceService.getHotSauceByID(id);
+        Optional<HotSauce> hotSauce = hotSauceService.getHotSauceById(id);
 
         return hotSauce.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
@@ -40,11 +41,11 @@ public class HotSauceController {
                 }
                 else if (SHU != null)
                 {
-                    return hotSauceService.getHotSauceBySHU(SHU);
+                    return hotSauceService.getHotSauceByScovilleHeatUnits(SHU);
                 }
                 else if (SL != null)
                 {
-                    return hotSauceService.getHotSauceBySL(SL);
+                    return hotSauceService.getHotSauceByScovilleLevel(SL);
                 }
                 else if (producer != null)
                 {
