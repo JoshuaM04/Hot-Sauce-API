@@ -42,4 +42,10 @@ public class HotSauceService {
     public List<HotSauce> getHotSauceByNameAndProducer(String name, String producer) {
         return hotSauceRepository.findByNameAndProducer(name, producer);
     }
+
+    public HotSauce addHotSauce(HotSauce hotSauce)
+    {
+        hotSauceRepository.save(hotSauce);
+        return hotSauce;
+    }
 }

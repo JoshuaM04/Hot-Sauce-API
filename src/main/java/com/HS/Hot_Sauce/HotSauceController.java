@@ -2,6 +2,7 @@ package com.HS.Hot_Sauce;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,4 +61,11 @@ public class HotSauceController
                     return hotSauceService.getHotSauce();
                 }
             }
+
+    @PostMapping
+    public ResponseEntity<HotSauce> addHotSauce(@RequestBody HotSauce hotSauce)
+    {
+        HotSauce createdHotSauce =  hotSauceService.addHotSauce(hotSauce);
+        return new ResponseEntity<>(createdHotSauce, HttpStatus.CREATED);
+    }
 }
