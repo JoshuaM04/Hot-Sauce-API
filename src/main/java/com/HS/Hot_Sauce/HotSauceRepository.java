@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @Repository
-public interface HotSauceRepository extends JpaRepository<HotSauce,String>
+public interface HotSauceRepository extends JpaRepository<HotSauce,Long>
 {
     // Optional, as I expect at most 1 value to be returned.
     // Optional<HotSauce> findById(String id);

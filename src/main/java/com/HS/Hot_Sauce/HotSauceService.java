@@ -19,7 +19,7 @@ public class HotSauceService {
         return hotSauceRepository.findAll();
     }
 
-    public Optional<HotSauce> getHotSauceById(String searchIndex) {
+    public Optional<HotSauce> getHotSauceById(Long searchIndex) {
         return hotSauceRepository.findById(searchIndex);
     }
 

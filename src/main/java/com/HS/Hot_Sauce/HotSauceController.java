@@ -20,7 +20,7 @@ public class HotSauceController
 
     @GetMapping("/{id}")
     // ResponseEntity handles HTTP status codes
-    public ResponseEntity<HotSauce> getHotSauceByID(@PathVariable String id)
+    public ResponseEntity<HotSauce> getHotSauceByID(@PathVariable Long id)
     {
         Optional<HotSauce> hotSauce = hotSauceService.getHotSauceById(id);
 

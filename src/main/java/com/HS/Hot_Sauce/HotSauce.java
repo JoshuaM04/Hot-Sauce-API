@@ -1,9 +1,6 @@
 package com.HS.Hot_Sauce;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity // Maps class to a database table--allows JPA operations (CRUD)
 @Table(name = "sauce_statistics")
@@ -23,17 +20,17 @@ public class HotSauce
     private String producer;
 
     @Id // Marks this column as the primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
-    private String id;
+    private Long id;
 
     public HotSauce() {}
 
-    public HotSauce(String name, String scovilleHeatUnits, String scovilleLevel, String producer, String id) {
+    public HotSauce(String name, String scovilleHeatUnits, String scovilleLevel, String producer) {
         this.name = name;
         this.scovilleHeatUnits = scovilleHeatUnits;
         this.scovilleLevel = scovilleLevel;
         this.producer = producer;
-        this.id = id;
     }
 
     public String getName() {
@@ -68,11 +65,11 @@ public class HotSauce
         this.producer = producer;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }
